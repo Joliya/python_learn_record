@@ -13,7 +13,7 @@ class ZkClient:
 
     def __init__(self):
 
-        self._zk_client = KazooClient(hosts="192.168.102.177:2181")
+        self._zk_client = KazooClient(hosts="192.168.21.63:2181")
         self._zk_client.start()
 
     def create_node(self, path, value):

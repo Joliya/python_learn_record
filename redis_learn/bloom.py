@@ -12,7 +12,7 @@ key = 'codehole'
 
 import redis
 
-client = redis.StrictRedis(host='localhost', port=6379)
+client = redis.StrictRedis(host='192.168.21.63', port=6379)
 # for i in range(1000):
 #     client.pfadd(key, "user%d" % i)
 #     total = client.pfcount(key)
@@ -20,7 +20,7 @@ client = redis.StrictRedis(host='localhost', port=6379)
 #         print(total, i+1)
 #         break
 
-
+# client.set("zhangsna", 19)
 client.delete(key)
 for i in range(100000):
     client.execute_command('set', key, 'user%d' % i)
