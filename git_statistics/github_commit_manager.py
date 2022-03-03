@@ -15,7 +15,7 @@ import json
 import requests
 from dateutil.parser import parse
 
-gitlab_url = "https://github.com/Joliya/python_learn_record"  # GitLab 地址
+gitlab_url = "https://api.github.com/Joliya/springcloud-config"  # GitLab 地址
 private_token = "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"  # GitLab Access Tokens（管理员权限）
 
 info = []
