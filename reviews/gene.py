@@ -17,6 +17,7 @@ from __future__ import absolute_import, unicode_literals
 
 def new_tiger(gene_1, gene_2, new_gene):
     """
+    todo: 有问题，解决不了用例第三条的问题
     判断新的基因序列是否是 前两个基因序列混合而成
     :param gene_1: 基因序列1
     :param gene_2: 基因序列1
