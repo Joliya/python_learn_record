@@ -65,12 +65,10 @@ def new_tiger2(gene_1, gene_2, new_gene):
 def help(gene_1, gene_1_len, index_1, gene_2, gene_2_len, index_2, new_gene, new_gene_len, index):
     if gene_1_len == index_1 and gene_2_len == index_2 and new_gene_len == index:
         return True
-    # result_1 = False
     if gene_1_len > index_1 and gene_1[index_1] == new_gene[index]:
         result_1 = help(gene_1, gene_1_len, index_1 + 1, gene_2, gene_2_len, index_2, new_gene, new_gene_len, index + 1)
         if result_1:
             return result_1
-    # result_2 = False
     if gene_2_len > index_2 and gene_2[index_2] == new_gene[index]:
         result_2 = help(gene_1, gene_1_len, index_1, gene_2, gene_2_len, index_2 + 1, new_gene, new_gene_len, index + 1)
         if result_2:
@@ -105,4 +103,7 @@ if __name__ == '__main__':
     new_gene = "AAAGAAATTAATAGCC"
     print(new_tiger2(gene_1, gene_2, new_gene))  # False
 
-
+    gene_1 = "AGT"
+    gene_2 = "ACT"
+    new_gene = "AACGTT"
+    print(new_tiger2(gene_1, gene_2, new_gene))  # True
