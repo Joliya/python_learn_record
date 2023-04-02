@@ -55,6 +55,7 @@
 由于 "4193" 在范围 [-231, 231 - 1] 内，最终结果为 4193 。
 """
 
+
 class Solution(object):
     def myAtoi(self, s):
         """
@@ -93,7 +94,17 @@ INT_MIN = -2 ** 31
 
 
 
-# leetcode 大神的新颖解法
+# leetcode 大神的新颖解法， 状态机来决定
+
+
+"""
+状态           ""      "+/-"  in_number   other
+start:       start   signed   in_number   end
+signed:      end      end     in_number   end
+in_number:   end      end     in_number   end
+end:         end      end       end       end
+"""
+
 
 class Automaton:
     def __init__(self):
