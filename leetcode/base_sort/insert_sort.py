@@ -5,6 +5,9 @@
 遍历的过程中，将 当前遍历的数和已经遍历过的部分逐一对比，插入到合适的位置
 
 """
+from copy import deepcopy
+
+from leetcode.base_sort.test_unit import test_unit
 
 
 def insert_sort(nums):
@@ -21,12 +24,6 @@ def insert_sort(nums):
     return nums
 
 
-def test_unit(nums):
-    nums_1 = insert_sort(nums)
-    nums_2 = sorted(nums_1, key=lambda x: x)
-    return nums_1 == nums_2
-
-
 if __name__ == '__main__':
-    print(test_unit([3, 44, 23, 43, 1, 2, 44, 5, 7]))
-    print(test_unit(list({23, 11, 7, 29, 33, 59, 8, 20, 9, 3, 2, 6, 10, 44, 83, 28, 5, 1, 0, 36})))
+    print(test_unit([3, 44, 23, 43, 1, 2, 44, 5, 7], insert_sort))
+    print(test_unit([23, 11, 7, 29, 33, 59, 8, 20, 9, 3, 2, 6, 10, 44, 83, 28, 5, 1, 0, 36], insert_sort))
