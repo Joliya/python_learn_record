@@ -6,20 +6,20 @@
 from leetcode.base_sort.test_unit import test_unit
 
 
-def simple_select_sort(sums):
+def simple_select_sort(nums):
     """
     简单选择排序
-    :param sums:
+    :param nums:
     :return:
     """
-    l = len(sums)
+    l = len(nums)
     for i in range(l):
         max_index = 0
         for j in range(l - i):
-            if sums[j] > sums[max_index]:
+            if nums[j] > nums[max_index]:
                 max_index = j
-        sums[max_index], sums[l - 1 - i] = sums[l - 1 - i], sums[max_index]
-    return sums
+        nums[max_index], nums[l - 1 - i] = nums[l - 1 - i], nums[max_index]
+    return nums
 
 
 if __name__ == '__main__':
