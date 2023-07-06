@@ -15,21 +15,21 @@ def max_path(nums):
         return 0
     if n == 1:
         return nums[0][0]
-    # 初始化一个 n * n 的数组，用来存放路径上的数字之和
-    dp = [[0] * n for _ in range(n)]
+    # 初始化一个 n + 1 * n + 1 的数组，用来存放路径上的数字之和, 最外层包一圈，是为了减少判断，不影响最终结果
+    dp = [[0] * (n + 1) for _ in range(n + 1)]
     #  0，0的位置的值为 nums 的第一个值
     dp[0][0] = nums[0][0]
 
-    for i in range(1, n):
+    for i in range(n):
         for j in range(n):
             # 如果是第一列，只能往下、右下走
             if j == 0:
-                dp[i][j] = dp[i - 1][j] + nums[i][j]
+                dp[i][j] = max(dp[i-1][j], dp[i-1][j+1]) + nums[i][j]
             elif j == n - 1:
                 dp[i][j] = max(dp[i - 1][j], dp[i - 1][j - 1]) + nums[i][j]
             else:
                 dp[i][j] = max(dp[i-1][j], dp[i-1][j-1], dp[i-1][j+1]) + nums[i][j]
-
+    print(dp)
     return max(dp[n - 1])
 
 
