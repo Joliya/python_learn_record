@@ -7,10 +7,10 @@ from __future__ import absolute_import, unicode_literals
 
 import time
 
-from celery_tasks.main import celery_app
+from celery_demo.celery_tasks.main import celery_app
 
 
-@celery_app.task
+@celery_app.task(queue="task_celery")
 def x():
     print("任务开始")
     time.sleep(5)

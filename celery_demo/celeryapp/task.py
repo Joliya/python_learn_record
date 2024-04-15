@@ -7,12 +7,12 @@ from __future__ import absolute_import, unicode_literals
 
 import time
 
-from celery import Celery
+from celery_demo import Celery
 
-app = Celery('tasks', broker='amqp://guest@192.168.21.63:2181//')
+app = Celery('tasks', broker='amqp://guest:guest@localhost:5672//')
 
 
-@app.task
+@app.task()
 def x():
     print("任务开始")
     time.sleep(5)
