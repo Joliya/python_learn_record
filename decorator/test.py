@@ -31,7 +31,7 @@ def compute_time_hard(event_name="x"):
     print(f"hard_decorator_event_name: {event_name}")
 
 
-@compute_time_hard_decorator(event_name="hard_decorator_event_name")
+# @compute_time_hard_decorator(event_name="hard_decorator_event_name")
 def compute_time_hard_2(event_name="x"):
     print(f"hard_decorator_event_name: {event_name}")
 
@@ -41,9 +41,13 @@ if __name__ == '__main__':
     record_author_name("小芳")
     print(f"record_author_name 函数增加了作者名称 {record_author_name.author_name}")
 
-    compute_time_middle(event_name="测试middle 计算时间装饰器")
+    # compute_time_middle(event_name="测试middle 计算时间装饰器")
     print("_______________________________")
-    compute_time_hard(event_name="hard 测试  装饰器使用的时候 兼容 有无括号1")
+    # compute_time_hard(event_name="hard 测试  装饰器使用的时候 兼容 有无括号1")
     print("_______________________________")
-    compute_time_hard_2(event_name="hard 测试  装饰器使用的时候 兼容 有无括号2")
+    compute_time_hard_decorator()(compute_time_hard)(event_name="hard 测试  装饰器使用的时候 兼容 有无括号33333")
+    print("_______________________________")
+    # compute_time_hard_2(event_name="hard 测试  装饰器使用的时候 兼容 有无括号2")
+    a = compute_time_hard_decorator()(compute_time_hard_2)(event_name="hard 测试  装饰器使用的时候 兼容 有无括号44444")
+    print(a)
 
