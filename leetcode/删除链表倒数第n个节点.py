@@ -8,18 +8,18 @@ from __future__ import absolute_import, unicode_literals
 from leetcode.common import Node
 
 
-def del_reserve_n_node(node, n):
+def del_reserve_n_node(head, n):
     """
     删除倒数第 N 个节点
-    :param node:
+    :param head:
     :param n:
     :return:
     """
-    if not node:
+    if not head:
         return None
 
     if n < 1:
-        return node
+        return head
 
     h = head
     slow = head
@@ -34,6 +34,26 @@ def del_reserve_n_node(node, n):
         fast = fast.next
     dum.next = fast.next
     return h
+
+
+def del_reserve_n_node2(node, n):
+    if not node:
+        return None
+
+    stack = []
+    head = node
+    while node:
+        stack.append(node)
+        node = node.next
+    count = -1
+    cur_node = None
+    while count != n:
+        cur_node = stack.pop()
+        count += 1
+    if cur_node:
+        cur_node.next = cur_node.next.next
+    return head
+
 
 node3 = Node(5, None)
 node4 = Node(4, node3)
