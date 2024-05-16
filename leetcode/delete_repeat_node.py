@@ -10,7 +10,11 @@ from leetcode.common import Node
 
 
 def delete_repeat_node(node: Node):
-
+    """
+    删除链表重复节点
+    :param node:
+    :return:
+    """
     head = node
     while(node.next != None):
         if node.value == node.next.value:
