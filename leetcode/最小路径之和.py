@@ -36,7 +36,9 @@ class Solution(object):
 
 
 if __name__ == '__main__':
-    grid = [[1, 3, 1], [1, 5, 1], [4, 2, 1]]
+    grid = [[1, 3, 1],
+            [1, 5, 1],
+            [4, 2, 1]]
     print(Solution().minPathSum(grid))
     grid = [[1]]
     print(Solution().minPathSum(grid))
