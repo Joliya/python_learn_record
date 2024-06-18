@@ -99,7 +99,8 @@ def batch_create(home_directory):
             count, word_count = int(str_count), 0
         if word_count > 0:
             count += 1
-        name_list.append(f"{i[0]} {i[1]}{count}")
+        name_list.append(f"{i[0]} {i[1]}")
+        # name_list.append(f"{i[0]} {i[1]}{count}")
     if not os.path.exists(f"{home_directory}/分发列表"):
         os.mkdir(f"{home_directory}/分发列表")
     index = 0
@@ -215,7 +216,7 @@ def distribute_2():
     if not os.path.exists(file_path):
         print("分发列表.xlsx 文件不存在")
         sys.exit(0)
-    batch_create(home_directory)
+    # batch_create(home_directory)
     file_list = get_all_files(f"{home_directory}/待分发")
     clinic_2_file_list = {}
     for file in file_list:
@@ -232,7 +233,8 @@ def distribute_2():
     dis_info_list.sort(key=lambda x: x[-1], reverse=True)
     for i in dis_info_list:
         file_count = i[-1]
-        dir_name = f"{i[0]} {i[1]}"
+        dir_name = f"{i[0]}"
+        # dir_name = f"{i[0]} {i[1]}"
         if "." in str(file_count):
             num, remainder = str(file_count).split(".")
         else:
