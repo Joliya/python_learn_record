@@ -11,6 +11,7 @@ import sys
 import shutil
 import os
 import pandas as pd
+from docx import Document
 
 
 def get_all_files(directory):
@@ -71,6 +72,67 @@ def get_all_files(directory):
 #     # 调用 shell 脚本，并传递参数
 #     result = subprocess.run([shell_script_path, input_file, output_dir], stdout=subprocess.PIPE, stderr=subprocess.PIPE,
 #                             text=True)
+
+
+# 将一个docx文档中的内容截断到指定的字数限制，最多可以超过指定字数限制 50 个字
+from docx import Document
+from docx.shared import Pt
+from docx.oxml.ns import qn
+from docx.enum.text import WD_PARAGRAPH_ALIGNMENT
+
+
+def truncate_docx_to_sentence_end(input_path, output_path, max_length, tolerance=50):
+    """
+    截断 docx 文档内容到指定的字数限制，尽量保证以句号结尾，最多可以超过指定字数限制一定的容忍度（tolerance），
+    并设置新文档的字体为宋体、加粗且字体大小为小四（约12pt）。
+
+    :param input_path: 输入的 docx 文件路径
+    :param output_path: 输出的 docx 文件路径
+    :param max_length: 指定的最大字数限制
+    :param tolerance: 最多可以超过指定字数限制的字数
+    """
+    doc = Document(input_path)
+    new_doc = Document()
+
+    current_length = 0
+    for paragraph in doc.paragraphs:
+        if current_length >= max_length + tolerance:
+            break
+        paragraph_text = paragraph.text
+        new_length = current_length + len(paragraph_text)
+
+        if new_length <= max_length + tolerance:
+            added_paragraph = new_doc.add_paragraph(paragraph_text)
+            set_font_style(added_paragraph)
+            current_length += len(paragraph_text)
+        else:
+            remaining_length = max_length + tolerance - current_length
+            truncated_text = truncate_to_nearest_period(paragraph_text, remaining_length)
+            if truncated_text:
+                added_paragraph = new_doc.add_paragraph(truncated_text)
+                set_font_style(added_paragraph)
+            break
+
+    new_doc.save(output_path)
+
+
+def set_font_style(paragraph):
+    for run in paragraph.runs:
+        run.font.name = '宋体'
+        run._element.rPr.rFonts.set(qn('w:eastAsia'), '宋体')
+        run.font.bold = True
+        run.font.size = Pt(12)
+
+
+def truncate_to_nearest_period(text, max_length):
+    if len(text) <= max_length:
+        return text
+    cut_off_point = text.rfind('。', 0, max_length)
+    if cut_off_point != -1:
+        return text[:cut_off_point + 1]
+    else:
+        # 如果没有找到句号，返回最大长度内的文本
+        return text[:max_length]
 
 
 def get_executable_dir():
@@ -277,7 +339,9 @@ def distribute_2():
                     f_name, extend = os.path.splitext(file_name)
                     new_file_path = f"{dir_path}/{f_name}_{words_count}{extend}"
                     special = True
-                shutil.copy2(file_path, new_file_path)
+                    truncate_docx_to_sentence_end(file_path, new_file_path, words_count)
+                else:
+                    shutil.copy2(file_path, new_file_path)
             clinic_2_file_list[clinic] = copy_file_list
             break
         dis_files = get_all_files(doctor_file_path)
