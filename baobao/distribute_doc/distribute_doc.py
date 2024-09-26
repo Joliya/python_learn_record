@@ -295,8 +295,8 @@ def distribute_2():
     dis_info_list.sort(key=lambda x: x[-1], reverse=True)
     for i in dis_info_list:
         file_count = i[-1]
-        # dir_name = f"{i[0]}"
-        dir_name = f"{i[0]} {i[1]}"
+        dir_name = f"{i[0]}"
+        # dir_name = f"{i[0]} {i[1]}"
         if "." in str(file_count):
             num, remainder = str(file_count).split(".")
         else:
