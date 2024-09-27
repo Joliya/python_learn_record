@@ -21,4 +21,4 @@ def del_doc_end_digist(file_path):
 
 
 if __name__ == '__main__':
-    del_doc_end_digist("/Users/zhangjinpeng/PycharmProjects/flaskProject/baobao/distribute_doc/待分发/甲亢221")
+    del_doc_end_digist("/PycharmProjects/flaskProject/baobao/distribute_doc/待分发/甲亢221")

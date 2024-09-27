@@ -8,7 +8,7 @@
 import pandas as pd
 
 
-data = pd.read_excel("/Users/zhangjinpeng/PycharmProjects/flaskProject/baobao/需要转换.xlsx")
+data = pd.read_excel("/PycharmProjects/flaskProject/baobao/需要转换.xlsx")
 data.fillna("", inplace=True)
 # result = [["端点", "员工编码", "自然人"]]
 result = [["端点", "员工编码", "自然人名称", "端点性质", "备注", "大区", "自然人名称（单个）"]]
@@ -33,4 +33,4 @@ for row in data.values:
         result.append([row[0], row[1], row[2], row[3], row[4], row[5], row[2]])
 
 
-pd.DataFrame(result).to_excel("/Users/zhangjinpeng/PycharmProjects/flaskProject/baobao/需要转换-new.xlsx", index=False, header=False)
+pd.DataFrame(result).to_excel("/PycharmProjects/flaskProject/baobao/需要转换-new.xlsx", index=False, header=False)

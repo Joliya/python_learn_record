@@ -63,7 +63,7 @@ def get_all_files(directory):
 
 # def new_doc_convert(input_path, out_path):
 #     # 定义 shell 脚本的路径
-#     shell_script_path = '/Users/zhangjinpeng/PycharmProjects/flaskProject/baobao/distribute_doc/convert_doc.sh'
+#     shell_script_path = '/PycharmProjects/flaskProject/baobao/distribute_doc/convert_doc.sh'
 #
 #     # 定义要转换的文件路径和输出目录路径
 #     input_file = input_path

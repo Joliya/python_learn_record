@@ -19,7 +19,7 @@ head_content = """您与调研对象的关系是<[input]>
 
 调研对象所在城市<[input]>"""
 
-directory = "/Users/zhangjinpeng/workspace/python_learn_record/baobao/文档内容补充ABCD/问卷0612"
+directory = "/workspace/python_learn_record/baobao/文档内容补充ABCD/问卷0612"
 
 # 将 head_content 的内容写入到 directory 路径下的每一个 docx 文件的开头,
 # 其中 路径 directory 是一个包含多个 docx 文件的目录

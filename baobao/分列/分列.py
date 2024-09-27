@@ -10,7 +10,7 @@ import pandas as pd
 import re
 import os
 
-# data = pd.read_excel("/Users/zhangjinpeng/PycharmProjects/flaskProject/baobao/工作簿9.xlsx")
+# data = pd.read_excel("/PycharmProjects/flaskProject/baobao/工作簿9.xlsx")
 # result = [["任务交付物ID", "标题", "时间", "链接"]]
 # data.fillna("", inplace=True)
 # for item in data.values:
@@ -22,9 +22,9 @@ import os
 #     result.append([_id, title, time, url])
 #
 # df = pd.DataFrame(result)
-# df.to_excel("/Users/zhangjinpeng/PycharmProjects/flaskProject/baobao/工作簿9_new.xlsx", index=False, header=False)
+# df.to_excel("/PycharmProjects/flaskProject/baobao/工作簿9_new.xlsx", index=False, header=False)
 
-df = pd.read_excel("/Users/zhangjinpeng/PycharmProjects/flaskProject/baobao/分列/需要分裂.xlsx")
+df = pd.read_excel("/PycharmProjects/flaskProject/baobao/分列/需要分裂.xlsx")
 df.fillna("", inplace=True)
 
 # 定义一个函数，用于通过正则表达式拆分字符串
@@ -70,5 +70,5 @@ l = [i for i in range(0, 21)]
 result_df = pd.concat([df.iloc[:, l], new_df], axis=1)
 
 # 将结果写入新的Excel文件
-result_df.to_excel(f"/Users/zhangjinpeng/PycharmProjects/flaskProject/baobao/分列/需要分裂-new.xlsx", index=False, header=True)
+result_df.to_excel(f"/PycharmProjects/flaskProject/baobao/分列/需要分裂-new.xlsx", index=False, header=True)
 

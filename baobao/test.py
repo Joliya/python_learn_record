@@ -25,7 +25,7 @@ def find_combinations(data, target, start=0, path=[], result=None):
 
 # 示例数据
 
-data = pd.read_excel("/Users/zhangjinpeng/workspace/python_learn_record/baobao/执行明细-6月.xlsx")
+data = pd.read_excel("/workspace/python_learn_record/baobao/执行明细-6月.xlsx")
 data.fillna("", inplace=True)
 data = [(i[0], i[1]) for i in data.values]
 

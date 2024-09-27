@@ -9,7 +9,7 @@ import os
 import pandas as pd
 
 # 文件夹路径
-folder_path = "/Users/zhangjinpeng/Documents/宝宝/待命名"
+folder_path = "/Documents/宝宝/待命名"
 
 # 获取文件夹中所有文件的路径
 file_paths = [os.path.join(folder_path, file) for file in os.listdir(folder_path) if not file.startswith(".")]

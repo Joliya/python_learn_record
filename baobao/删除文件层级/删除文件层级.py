@@ -24,7 +24,7 @@ def delete_file_level():
     文件路径为当前文件路径同级目录【内容创作】, 要求删除下一级目录，保留下下一级目录
     :return:
     """
-    # 获取 /Users/zhangjinpeng/PycharmProjects/flaskProject/baobao/删除文件层级/内容创作 目录下的所有文件全路径
+    # 获取 /PycharmProjects/flaskProject/baobao/删除文件层级/内容创作 目录下的所有文件全路径
     file_path = os.path.dirname(os.path.realpath(__file__))
     dir_name = "交付物导出-科普文章-2024-05-27-北京基层"
     new_file_path = os.path.join(file_path, dir_name)
