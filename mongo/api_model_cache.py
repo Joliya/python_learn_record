@@ -28,8 +28,6 @@ import six
 from mongoengine import pre_save, post_delete, post_save, StringField
 from mongoengine.base import BaseDocument
 
-from settings import Settings
-from tools import RedisConnect
 from tools.encoding import sha1_hex, ensure_unicode
 
 DEFAULT_KEY = "defaults"
@@ -405,9 +403,6 @@ def model_cache(model_cls=None, unique_keys=(('_id',),), expire_seconds=None, ve
     :param version: cache_version
     :param redis_client: redis实例，默认为 model_cache
     """
-    if not redis_client:
-        RedisConnect.init(settings=Settings)
-        redis_client = RedisConnect.model_cache
 
     def _model_wrapper(model_class):
         add_cache_manager(model_class, redis_client, unique_keys=unique_keys,
