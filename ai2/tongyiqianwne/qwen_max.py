@@ -7,6 +7,7 @@ from openai import OpenAI
 
 
 try:
+    print(os.environ.get("DASHSCOPE_API_KEY"))
     client = OpenAI(
 
         api_key=os.environ.get("DASHSCOPE_API_KEY"),
