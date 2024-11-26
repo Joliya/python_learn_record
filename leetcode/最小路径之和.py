@@ -27,7 +27,10 @@ class Solution(object):
             for j in range(n):
                 # 如果是第一列，只能往下、右下走
                 if i == 0:
-                    dp[i][j] = dp[i][j-1] + grid[i][j]
+                    if j == 0:
+                        dp[i][j] = grid[i][j]
+                    else:
+                        dp[i][j] = dp[i][j-1] + grid[i][j]
                 elif j == 0:
                     dp[i][j] = dp[i-1][j] + grid[i][j]
                 else:
