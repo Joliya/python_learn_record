@@ -1,10 +1,18 @@
-"""
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+'''
+@File    :   insert_sort.py
+@Time    :   2024/12/20 17:04:12
+@Author  :   huixuan 
+@Desc    :   None
+
 直接插入排序
 
 主要思想
 遍历的过程中，将 当前遍历的数和已经遍历过的部分逐一对比，插入到合适的位置
+'''
 
-"""
+
 from copy import deepcopy
 
 from leetcode.base_sort.test_unit import test_unit
@@ -22,6 +30,10 @@ def insert_sort(nums):
             else:
                 break
     return nums
+
+
+def insert_sort2(arr):
+    
 
 
 if __name__ == '__main__':
