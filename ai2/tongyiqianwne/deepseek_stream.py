@@ -9,7 +9,7 @@ client = OpenAI(
 completion = client.chat.completions.create(
     model="deepseek-r1", # 此处以 deepseek-r1 为例，可按需更换模型名称。
     messages=[
-        {'role': 'user', 'content': '9.9和9.11谁大'}
+        {'role': 'user', 'content': '给app  YILI town   取一个中文名称，主题和烧烤美食相关'}
         ],
     stream=True,
     # 解除以下注释会在最后一个chunk返回Token使用量
