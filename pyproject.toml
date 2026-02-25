@@ -5,11 +5,22 @@ description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
-    "autogen-agentchat>=0.6.4",
+    "alibabacloud-oss-v2>=1.1.1",
+    "autogen-agentchat>=0.7.4",
     "autogen-ext[mcp,openai]>=0.6.4",
+    "dotenv>=0.9.9",
+    "google-genai>=1.45.0",
+    "gradio-client>=2.0.2",
+    "httpx[socks]>=0.28.1",
     "ipython>=9.2.0",
+    "json-repair>=0.48.0",
+    "langchain>=1.2.10",
+    "langchain-openai>=1.1.10",
+    "openai>=1.101.0",
     "openpyxl>=3.1.5",
     "pandas>=2.2.3",
     "pika>=1.3.2",
+    "pydub>=0.25.1",
+    "volcengine-python-sdk[ark]>=4.0.34",
     "zmq>=0.0.0",
 ]
